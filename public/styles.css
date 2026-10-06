@@ -1,0 +1,291 @@
+:root {
+  --bg: #f4f6f9;
+  --card: #fff;
+  --text: #1a2332;
+  --muted: #5c6b7a;
+  --primary: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --border: #dde3ea;
+  --danger: #c0392b;
+  --success-bg: #e8f5e9;
+  --success-text: #1b5e20;
+  --error-bg: #ffebee;
+  --error-text: #b71c1c;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(26, 35, 50, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.topbar {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.brand-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.brand-sub {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.tab.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.panel[hidden] {
+  display: none !important;
+}
+
+.panel.active {
+  display: block;
+}
+
+h1 {
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+}
+
+.hint {
+  color: var(--muted);
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.req {
+  color: var(--danger);
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.inline-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.inline-form label {
+  min-width: 140px;
+}
+
+.inline-form .grow {
+  flex: 1;
+  min-width: 200px;
+}
+
+.lines-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.lines-header h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.lines-table,
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+}
+
+.lines-table th,
+.data-table th {
+  text-align: left;
+  background: #eef2f7;
+  padding: 0.65rem;
+  font-size: 0.8rem;
+}
+
+.lines-table td,
+.data-table td {
+  padding: 0.5rem 0.65rem;
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.lines-table select,
+.lines-table input[type='number'] {
+  width: 100%;
+}
+
+.stock-cell {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.stock-cell.low {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.form-actions {
+  margin-top: 1.25rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn.secondary {
+  background: #eef2f7;
+  color: var(--text);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--danger);
+  padding: 0.35rem 0.5rem;
+}
+
+.btn.link {
+  background: transparent;
+  color: var(--primary);
+  padding: 0.25rem 0.5rem;
+  font-weight: 500;
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+}
+
+.message.success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.message.error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+.detail-card {
+  margin-top: 1rem;
+}
+
+.detail-card h3 {
+  margin-top: 0;
+}
+
+.stock-adjust {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.stock-adjust input {
+  width: 80px;
+}
+
+@media (max-width: 600px) {
+  .lines-table thead {
+    display: none;
+  }
+  .lines-table tr {
+    display: block;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem;
+  }
+  .lines-table td {
+    display: block;
+    border: none;
+  }
+}
