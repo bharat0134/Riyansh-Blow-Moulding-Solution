@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Riyansh — Dispatch</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-title">Riyansh Blow Moulding Solutions</span>
+        <span class="brand-sub">Dispatch & Stock</span>
+      </div>
+      <nav class="tabs" role="tablist">
+        <button type="button" class="tab active" data-tab="dispatch">Dispatch (Manual)</button>
+        <button type="button" class="tab" data-tab="customers">Customer Master</button>
+        <button type="button" class="tab" data-tab="products">Product Master</button>
+        <button type="button" class="tab" data-tab="history">Dispatch History</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="panel-dispatch" class="panel active" role="tabpanel">
+        <h1>Manual Dispatch Entry</h1>
+        <p class="hint">Customer aur product master se select karein. Submit par stock automatic minus hoga.</p>
+        <form id="dispatch-form" class="card">
+          <div class="form-row">
+            <label>
+              Dispatch No.
+              <input type="text" id="dispatch-no" readonly />
+            </label>
+            <label>
+              Customer <span class="req">*</span>
+              <select id="dispatch-customer" required>
+                <option value="">— Select customer —</option>
+              </select>
+            </label>
+            <label>
+              Vehicle No.
+              <input type="text" id="dispatch-vehicle" placeholder="e.g. DL01AB1234" />
+            </label>
+          </div>
+          <label>
+            Notes
+            <textarea id="dispatch-notes" rows="2" placeholder="Optional"></textarea>
+          </label>
+
+          <div class="lines-header">
+            <h2>Product lines</h2>
+            <button type="button" id="add-line" class="btn secondary">+ Add row</button>
+          </div>
+          <table class="lines-table" id="lines-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Available stock</th>
+                <th>Qty</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="lines-body"></tbody>
+          </table>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Submit dispatch</button>
+          </div>
+        </form>
+        <div id="dispatch-message" class="message" hidden></div>
+      </section>
+
+      <section id="panel-customers" class="panel" role="tabpanel" hidden>
+        <h1>Customer Master</h1>
+        <form id="customer-form" class="card inline-form">
+          <label>
+            Name <span class="req">*</span>
+            <input type="text" id="customer-name" required />
+          </label>
+          <label>
+            Phone
+            <input type="text" id="customer-phone" />
+          </label>
+          <label class="grow">
+            Address
+            <input type="text" id="customer-address" />
+          </label>
+          <button type="submit" class="btn primary">Add customer</button>
+        </form>
+        <div id="customer-message" class="message" hidden></div>
+        <table class="data-table" id="customers-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="panel-products" class="panel" role="tabpanel" hidden>
+        <h1>Product Master</h1>
+        <form id="product-form" class="card inline-form">
+          <label>
+            Name <span class="req">*</span>
+            <input type="text" id="product-name" required />
+          </label>
+          <label>
+            SKU
+            <input type="text" id="product-sku" />
+          </label>
+          <label>
+            Unit
+            <input type="text" id="product-unit" value="pcs" />
+          </label>
+          <label>
+            Opening stock
+            <input type="number" id="product-stock" min="0" step="any" value="0" required />
+          </label>
+          <button type="submit" class="btn primary">Add product</button>
+        </form>
+        <div id="product-message" class="message" hidden></div>
+        <table class="data-table" id="products-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>SKU</th>
+              <th>Unit</th>
+              <th>Stock</th>
+              <th>Adjust stock</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="panel-history" class="panel" role="tabpanel" hidden>
+        <h1>Dispatch History</h1>
+        <table class="data-table" id="history-table">
+          <thead>
+            <tr>
+              <th>Dispatch No.</th>
+              <th>Customer</th>
+              <th>Vehicle</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div id="history-detail" class="card detail-card" hidden></div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
